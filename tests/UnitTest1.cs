@@ -11,7 +11,7 @@ namespace tests
         public void Test1()
         {
             ProdutoInitialize prd = new ProdutoInitialize("produtos");
-            Assert.Equal(prd.Produtos().Preco, (double)150.00);
+            Assert.Equal(prd.Produtos()[0].Preco, (double)150.00);
         }
     }
 }
