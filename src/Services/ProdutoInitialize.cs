@@ -3,19 +3,14 @@ using Models;
 using Newtonsoft.Json;
 namespace Services
 {
-    public class Tester
-    {
-        public string nome {get; set;}
-        public string acesso {get; set;}
-    }
     public class ProdutoInitialize
     {
-        private ProdutoModel _produto {get; set;}
-        public Tester test;
-
-        public ProdutoInitialize()
-        {
-            this.test = JsonConvert.DeserializeObject<Tester>(File.ReadAllText(@"/home/dan/Documentos/json/test.json"));
-        }
+        private ProdutoModel _produtos;
+        public ProdutoInitialize() =>
+            _produtos = JsonConvert.DeserializeObject<ProdutoModel>(File.ReadAllText(@"/home/dan/Documentos/json/produtos.json"));
+        public ProdutoInitialize(string local) =>
+            _produtos = JsonConvert.DeserializeObject<ProdutoModel>(File.ReadAllText($"/home/dan/Documentos/json/{local}.json"));
+        
+        public ProdutoModel Produtos() =>  _produtos;
     }
 }

@@ -10,8 +10,8 @@ namespace tests
         [Fact]
         public void Test1()
         {
-            ProdutoInitialize prd = new ProdutoInitialize();
-            Console.WriteLine(prd.test.nome);
+            ProdutoInitialize prd = new ProdutoInitialize("produtos");
+            Assert.Equal(prd.Produtos().Preco, (double)150.00);
         }
     }
 }
