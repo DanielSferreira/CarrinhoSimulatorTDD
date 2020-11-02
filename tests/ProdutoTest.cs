@@ -17,7 +17,8 @@ namespace tests
         
         [Theory]
         [InlineData("Torta de Maça")]
-        public void GetProdutos(string name) 
-            {prd.GetProdutoByName(name).Produto.Should().Be(name, "os nomes precisam ser iguam");}
+        public void GetProdutos(string name)  =>
+                prd.GetProdutoByName(name).Produto.Should().Be(name, "os nomes precisam ser iguam");
+            
     }
 }
