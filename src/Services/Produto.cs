@@ -1,7 +1,7 @@
 using Models;
 using System.Collections.Generic;
 using System.Linq;
-namespace Services
+namespace src.Services
 {
     public class Produto : ProdutoInitialize
     {

@@ -1,7 +1,7 @@
 using FluentAssertions;
 using Xunit;
 
-using Services;
+using src.Services;
 
 namespace tests
 {

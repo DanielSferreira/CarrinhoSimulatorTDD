@@ -1,7 +1,6 @@
 using Xunit;
-using static Xunit.Assert;
 using FluentAssertions;
-using Services;
+using src.Services;
 using Moq;
 
 namespace tests
@@ -31,9 +30,15 @@ namespace tests
             clt.Should().BeFalse("o logout deve retornar falso");
         }
         [Fact]
-        public void TestName()
+        public void  LojaAddProdutoToCarrinhoTest_Verifica()
         {
+            var m_clt = new Mock<ClientInit>();
+            var m_car = new Mock<Models.CarrinhoModel>();
+            var m_prd = new Mock<Produto>();
             
+            var loja = new LojaService(m_clt.Object,m_car.Object,m_prd.Object);
+            bool except = loja.LojaAddProdutoToCarrinho("Torta de Maça");
+            except.Should().BeTrue("a função deve retornar verdadeiro");           
         }
     }
 }

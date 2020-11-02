@@ -5,5 +5,10 @@ namespace Models
         public string NomeCliente {get; set;}
         public List<ProdutoModel> ListaProduto {get; set;}
         public double Total {get; set;}
+
+        public CarrinhoModel()
+        {
+            ListaProduto = new List<ProdutoModel>();
+        }
     }
 }
