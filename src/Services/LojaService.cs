@@ -5,11 +5,11 @@ namespace src.Services
 {
     public class LojaService
     {
-        private ClienteModel cliente;
-        private CarrinhoModel carrinho;
-        private CarrinhoService _carrinho;
-        private List<ProdutoModel> ListarProdutosNaLoja;
-        private Produto produtos;
+        public ClienteModel cliente {get; internal set;}
+        //public CarrinhoModel carrinho {get; internal set;}
+        public CarrinhoService _carrinho {get; internal set;}
+        public List<ProdutoModel> ListarProdutosNaLoja {get; internal set;}
+        public Produto produtos {get; internal set;}
 
         public LojaService(
             ClientInit cliente,
@@ -18,7 +18,7 @@ namespace src.Services
         )
         {
             this.cliente = cliente.Cliente();
-            this.carrinho = carrinho;
+            //this.carrinho = carrinho;
             this._carrinho = new CarrinhoService();
             this.ListarProdutosNaLoja = produto.listPordutos();
             this.produtos = new Produto();

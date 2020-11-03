@@ -5,18 +5,18 @@ namespace src.Services
 {
     public class CarrinhoService
     {
-        protected CarrinhoModel _carrinho;
+        public CarrinhoModel data;
 
         public CarrinhoService()
         {
-            _carrinho = new CarrinhoModel();
+            data = new CarrinhoModel();
         }
 
         public bool AddToCarrinho(ProdutoModel prd)
         {
             try
             {
-                _carrinho.ListaProduto.Add(prd);
+                data.ListaProduto.Add(prd);
                 return true;
             }
             catch
@@ -25,10 +25,18 @@ namespace src.Services
             }
         }
 
-        public double UpdateCarrinho()
+        public double UpdatePreco()
         {
-            _carrinho.Total = _carrinho.ListaProduto.Sum(x=> x.Preco);
-            return _carrinho.Total;
+            data.Total = data.ListaProduto.Sum(x=> x.Preco);
+            return data.Total;
+        }
+        public bool FinalizaCompra()
+        {
+            int QuantItens = data.ListaProduto.Count;
+            double Total = data.Total;
+            
+            if( QuantItens >= 0 || Total >= 0) return true;
+            else return false;
         }
     }
 }

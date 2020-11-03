@@ -6,22 +6,21 @@ using src.Services;
 
 namespace src.Controllers
 {
-    public class LojaController : Controller
+    public class CarrinhoController : Controller
     {
-        private readonly ILogger<LojaController> _logger;
+        private readonly ILogger<CarrinhoController> _logger;
         private LojaService _loja;
-        public LojaController(ILogger<LojaController> logger, LojaService loja)
+        private CarrinhoService _carrinho;
+        public CarrinhoController(ILogger<CarrinhoController> logger, LojaService loja)
         {
             _logger = logger;
             _loja = loja;
+            _carrinho = loja._carrinho;
         }
 
         public IActionResult Index()
         {
             var pessoa = _loja.cliente;
-            var produtos = _loja.ListarProdutosNaLoja;
-            pessoa.NomeCliente = "Daniel da Silva Ferreira";
-            ViewData["produtos"] = produtos;
             return View(pessoa);
         }
         public IActionResult Produtos()

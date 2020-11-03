@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Models;
 
 namespace src
 {
@@ -24,6 +24,12 @@ namespace src
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            var a = new Services.LojaService(
+                new Services.ClientInit(),
+                new CarrinhoModel(),
+                new Services.Produto()
+            );;
+            services.AddSingleton<Services.LojaService>(a);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
