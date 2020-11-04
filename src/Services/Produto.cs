@@ -18,6 +18,12 @@ namespace src.Services
 
         public List<ProdutoModel> listPordutos() =>
             produto.ToList();
+        public void Decrement(ProdutoModel prd) {
+            System.Console.WriteLine($"{prd.Produto} - {prd.Quantidade}");
+            if(prd.Quantidade > 0) prd.Quantidade--;
+            else System.Console.WriteLine("Chegou no zero quantidade");
+            
+        }
 
     }
 }

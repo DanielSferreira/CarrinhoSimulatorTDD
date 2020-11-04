@@ -10,7 +10,7 @@ namespace src.Services
         public CarrinhoService _carrinho {get; internal set;}
         public List<ProdutoModel> ListarProdutosNaLoja {get; internal set;}
         public Produto produtos {get; internal set;}
-
+        
         public LojaService(
             ClientInit cliente,
             CarrinhoModel carrinho,
@@ -49,8 +49,14 @@ namespace src.Services
         {
             try
             {
+                var prodTemp = new Produto().GetProdutoByName(prdName);
                 var prod = this.produtos.GetProdutoByName(prdName);
-                this._carrinho.AddToCarrinho(prod);
+                this.produtos.Decrement(prod);
+                prodTemp.Produto = prod.Produto;
+                prodTemp.Descrição = prod.Descrição;
+                prodTemp.Preco = prod.Preco;
+                prodTemp.Quantidade = 1;
+                this._carrinho.AddToCarrinho(prodTemp);
                 return true;
             }
             catch (System.Exception)

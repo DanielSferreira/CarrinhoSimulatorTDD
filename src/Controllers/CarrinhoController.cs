@@ -20,13 +20,11 @@ namespace src.Controllers
 
         public IActionResult Index()
         {
-            var pessoa = _loja.cliente;
-            return View(pessoa);
+            return View(_loja);
         }
         public IActionResult Produtos()
         {
-            var produtos = _loja.ListarProdutosNaLoja;
-            return View(produtos);
+            return View();
         }
 
         public IActionResult Privacy()

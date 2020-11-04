@@ -19,20 +19,22 @@ namespace src.Controllers
         public IActionResult Index()
         {
             var pessoa = _loja.cliente;
-            var produtos = _loja.ListarProdutosNaLoja;
+            var produtos = _loja.produtos;
             pessoa.NomeCliente = "Daniel da Silva Ferreira";
             ViewData["produtos"] = produtos;
             return View(pessoa);
         }
         public IActionResult Produtos()
         {
-            var produtos = _loja.ListarProdutosNaLoja;
-            return View(produtos);
+            //var produtos = _loja.ListarProdutosNaLoja;
+            return View(_loja.produtos.listPordutos());
         }
 
-        public IActionResult Privacy()
+        public IActionResult AddToCarrinho(string prd)
         {
-            return View();
+            
+            _loja.LojaAddProdutoToCarrinho(prd);
+            return Redirect("Produtos");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

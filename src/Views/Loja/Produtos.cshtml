@@ -5,12 +5,20 @@
 
 <div class="text-center">
     <ul class="list-group">
+        <li class="list-group-item">
+            <span style="display: inline-block;width: 250px; text-align: center; font-weight: 700;">Produto</span>
+            <span style="display: inline-block;width: 150px; text-align: center; font-weight: 700;">Preço</span>
+            <span style="display: inline-block;width: 150px; text-align: center; font-weight: 700;">Quantidade</span>
+            <span style="display: inline-block;width: 150px; text-align: center; font-weight: 700;"></span>
+        </li>
         @foreach (var item in Model)
         {
             <li class="list-group-item">
-                <span style="display: inline-block;width: 250px;">@item.Produto</span>
-                <span style="display: inline-block;width: 250px;">R$ @item.Preco,00</span>
-                <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+                <span style="display: inline-block;width: 250px;"> @item.Produto</span>
+                <span style="display: inline-block;width: 150px;"> @item.Preco.ToString("R$ 0.00")</span>
+                <span style="display: inline-block;width: 150px;"> @item.Quantidade</span>
+                <a href="@Url.Action("AddToCarrinho", new { prd = @item.Produto })" class="btn btn-primary">Adicionar ao
+                    Carrinho</a>
             </li>
         }
     </ul>

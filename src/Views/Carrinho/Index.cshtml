@@ -1,11 +1,25 @@
-﻿@model Models.ClienteModel;
+﻿@model src.Services.LojaService;
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Lista de @Model.NomeCliente</h1>
-
-    
+    <h1 class="display-4">Lista de @Model.cliente.NomeCliente</h1>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span style="display: inline-block;width: 250px; text-align: center; font-weight: 700;">Produto</span>
+            <span style="display: inline-block;width: 150px; text-align: center; font-weight: 700;">Preço</span>
+            <span style="display: inline-block;width: 150px; text-align: center; font-weight: 700;">Quantidade</span>
+        </li>
+        @foreach (var item in @Model._carrinho.data.ListaProduto)
+        {
+            <li class="list-group-item">
+                <span style="display: inline-block;width: 250px;"> @item.Produto</span>
+                <span style="display: inline-block;width: 150px;"> @item.Preco.ToString("R$ 0.00")</span>
+                <span style="display: inline-block;width: 150px;"> @item.Quantidade</span>
+            </li>
+        }
+    </ul>
+    <h2>Total é @Model._carrinho.UpdatePreco().ToString("R$ 0.00")</h2>
     <p>Aqui já é o carrinho.</p>
 </div>
