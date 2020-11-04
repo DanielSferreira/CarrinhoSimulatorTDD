@@ -7,17 +7,17 @@ namespace tests
 {
     public class ClienteInitTest
     {
-        ProdutoInitialize prd;
+        public ClientInit clt;
         public ClienteInitTest() =>
-            this.prd = new ProdutoInitialize();
+            this.clt = new ClientInit();
         
         [Fact]
         public void ProdutosNaoVazios() => 
-            prd.Produtos().Should().HaveCountGreaterThan(0,"A lista não pode ser vázia");
+            this.clt.Cliente().Should().NotBeNull("A lista não pode ser vázia");
         
         [Fact]
         public void ProdutosTemQueSerProdutosModelsType() =>
-            this.prd.Produtos().Should().AllBeOfType<Models.ProdutoModel>("Tem que ser Tipo Models");
+            this.clt.Cliente().Should().BeOfType<Models.ClienteModel>("Tem que ser Tipo Models");
     }
 }
             

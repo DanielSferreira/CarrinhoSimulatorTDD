@@ -23,7 +23,6 @@ namespace tests
         [Fact]
         public void UpdatePrecoTest_GaranteSoma()
         {
-            //arrage
             var prd1 = new Produto().GetProdutoByName("Torta de Maça");
             var prd2 = new Produto().GetProdutoByName("Torta de Abobora");
             carrinho.AddToCarrinho(prd1);
@@ -35,7 +34,6 @@ namespace tests
         [Fact]
         public void UpdatePrecoTest_GaranteSomaPositiva()
         {
-            //arrage
             var prd1 = new Produto().GetProdutoByName("Torta de Maça");
             var prd2 = new Produto().GetProdutoByName("Torta de Abobora");
             carrinho.AddToCarrinho(prd1);

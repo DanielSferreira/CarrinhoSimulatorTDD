@@ -7,7 +7,7 @@ namespace src.Services
     {
         private ClienteModel clt;
         public ClientInit() =>
-            this.clt = JsonConvert.DeserializeObject<ClienteModel>(File.ReadAllText(@"/home/dan/Documentos/json/cliente.json"));
+            this.clt = JsonConvert.DeserializeObject<ClienteModel>(File.ReadAllText(@"Models/json/cliente.json"));
         
         public ClienteModel Cliente() =>  clt;
     }

@@ -18,15 +18,6 @@ namespace src.Controllers
 
         public IActionResult Index()
         {
-            var pessoa = _loja.cliente;
-            var produtos = _loja.produtos;
-            pessoa.NomeCliente = "Daniel da Silva Ferreira";
-            ViewData["produtos"] = produtos;
-            return View(pessoa);
-        }
-        public IActionResult Produtos()
-        {
-            //var produtos = _loja.ListarProdutosNaLoja;
             return View(_loja.produtos.listPordutos());
         }
 
@@ -34,7 +25,7 @@ namespace src.Controllers
         {
             
             _loja.LojaAddProdutoToCarrinho(prd);
-            return Redirect("Produtos");
+            return Redirect("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

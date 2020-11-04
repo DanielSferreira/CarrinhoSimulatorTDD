@@ -7,7 +7,7 @@ namespace src.Services
     {
         private ProdutoModel[] _produtos;
         public ProdutoInitialize() =>
-            _produtos = JsonConvert.DeserializeObject<ProdutoModel[]>(File.ReadAllText(@"Models/json/produtos.json"));
+            _produtos = JsonConvert.DeserializeObject<ProdutoModel[]>(File.ReadAllText("Models/json/produtos.json"));
         
         public ProdutoModel[] Produtos() =>  _produtos;
     }

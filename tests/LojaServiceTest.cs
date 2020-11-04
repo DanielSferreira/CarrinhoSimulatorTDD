@@ -8,7 +8,6 @@ namespace tests
     public class LojaServiceTest
     {
         [Fact]
-        [Trait("Init","loginTest")]
         public void loginTest()
         {
             var m_clt = new Mock<ClientInit>();
