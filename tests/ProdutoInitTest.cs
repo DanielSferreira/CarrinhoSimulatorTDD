@@ -9,7 +9,7 @@ namespace tests
     {
         ProdutoInitialize prd;
         public ProdutoInitTest() =>
-            this.prd = new ProdutoInitialize("produtos");
+            this.prd = new ProdutoInitialize();
         
         [Fact]
         public void ProdutosNaoVazios() => 

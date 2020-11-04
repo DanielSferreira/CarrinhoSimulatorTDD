@@ -4,7 +4,11 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Lista de @Model.cliente.NomeCliente</h1>
+    <h1 class="display-4">Carrinho</h1>
+    <div style="text-align: left;">
+        <h2>Cliente: @Model.cliente.NomeCliente</h2>
+        <h2>Total é @Model._carrinho.UpdatePreco().ToString("R$ 0.00")</h2>
+    </div>
     <ul class="list-group">
         <li class="list-group-item">
             <span style="display: inline-block;width: 250px; text-align: center; font-weight: 700;">Produto</span>
@@ -20,6 +24,4 @@
             </li>
         }
     </ul>
-    <h2>Total é @Model._carrinho.UpdatePreco().ToString("R$ 0.00")</h2>
-    <p>Aqui já é o carrinho.</p>
 </div>
